@@ -3,7 +3,7 @@ import React, {useState, useEffect } from "react"
 import {useLocation} from 'react-router-dom';
 import ActivityChart from "./ActivityChart";
 import ContributorChart from "./ContributorChart";
-const token='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';
+
 const Allgraphs=()=>{
     const [detail,setDetails]=useState([]);
     const [contributions,setContributors]=useState([]);
@@ -15,11 +15,8 @@ const fetchadddel=async()=>{
     if(!toggle)
     {
         let response = await fetch(
-            `https://api.github.com/repos/${location.state.owner}/${location.state.repoName}/stats/commit_activity`,{
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
+            `https://api.github.com/repos/${location.state.owner}/${location.state.repoName}/stats/commit_activity`
+              
           );
       
           if (response.status === 202) {
@@ -34,11 +31,8 @@ const fetchadddel=async()=>{
      else if(toggle)
      {
         let response = await fetch(
-            `https://api.github.com/repos/${location.state.owner}/${location.state.repoName}/stats/contributors`,{
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
+            `https://api.github.com/repos/${location.state.owner}/${location.state.repoName}/stats/contributors`
+             
           );
       
           if (response.status === 202) {
